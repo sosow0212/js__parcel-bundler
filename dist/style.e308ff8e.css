@@ -1,2 +1,30 @@
+body {
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+}
+
+.container-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.confirmed-span {
+  color: blue;
+}
+
+.death-span {
+  color: red;
+}
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

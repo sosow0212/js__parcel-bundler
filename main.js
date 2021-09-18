@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const url = "https://api.covid19api.com/total/dayone/country/kr";
-const h3 = document.querySelector("h3");
-const img = document.querySelector("img");
+const h1 = document.querySelector(".confirmed-span");
+const h3 = document.querySelector(".death-span");
 
 const fetchData = () => {
   const coronaData = axios.get(url).then((res) => {
@@ -16,7 +16,9 @@ function factory(res) {
   const total = 0;
 
   const confiremd = datas.pop().Confirmed;
-  h3.innerText = "총 확진자 수 : " + confiremd;
+  console.log(datas.pop())
+  h1.innerText = confiremd;
+  h3.innerText = datas.pop().Deaths;
 }
 
 fetchData();
