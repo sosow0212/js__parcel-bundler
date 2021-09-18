@@ -2221,41 +2221,23 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 var url = "https://api.covid19api.com/total/dayone/country/kr";
 var h3 = document.querySelector("h3");
 var img = document.querySelector("img");
 
-var fetchData = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var coronaData;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _axios.default.get(url).then(function (res) {
-              console.log(res);
-            });
+var fetchData = function fetchData() {
+  var coronaData = _axios.default.get(url).then(function (res) {
+    console.log(res);
+    factory(res);
+  });
+};
 
-          case 2:
-            coronaData = _context.sent;
-
-          case 3:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function fetchData() {
-    return _ref.apply(this, arguments);
-  };
-}();
+function factory(res) {
+  var datas = res.data;
+  var total = 0;
+  var confiremd = datas.pop().Confirmed;
+  h3.innerText = "총 확진자 수 : " + confiremd;
+}
 
 fetchData();
 },{"axios":"node_modules/axios/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
