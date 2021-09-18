@@ -2222,8 +2222,8 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var url = "https://api.covid19api.com/total/dayone/country/kr";
-var h1 = document.querySelector(".confirmed-span");
-var h3 = document.querySelector(".death-span");
+var confirmedSpan = document.querySelector(".confirmed-span");
+var deathSpan = document.querySelector(".death-span");
 
 var fetchData = function fetchData() {
   var coronaData = _axios.default.get(url).then(function (res) {
@@ -2237,8 +2237,8 @@ function factory(res) {
   var total = 0;
   var confiremd = datas.pop().Confirmed;
   console.log(datas.pop());
-  h1.innerText = confiremd;
-  h3.innerText = datas.pop().Deaths;
+  confirmedSpan.innerText = confiremd;
+  deathSpan.innerText = datas.pop().Deaths;
 }
 
 fetchData();

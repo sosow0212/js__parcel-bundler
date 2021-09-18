@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const url = "https://api.covid19api.com/total/dayone/country/kr";
-const h1 = document.querySelector(".confirmed-span");
-const h3 = document.querySelector(".death-span");
+const confirmedSpan = document.querySelector(".confirmed-span");
+const deathSpan = document.querySelector(".death-span");
 
 const fetchData = () => {
   const coronaData = axios.get(url).then((res) => {
@@ -17,8 +17,8 @@ function factory(res) {
 
   const confiremd = datas.pop().Confirmed;
   console.log(datas.pop())
-  h1.innerText = confiremd;
-  h3.innerText = datas.pop().Deaths;
+  confirmedSpan.innerText = confiremd;
+  deathSpan.innerText = datas.pop().Deaths;
 }
 
 fetchData();
